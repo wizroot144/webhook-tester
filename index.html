@@ -21,7 +21,7 @@
   </style>
 </head>
 <body>
-  <h2>📤 웹훅 테스트 버튼 (총 48개)</h2>
+  <h2>📤 웹훅 테스트 버튼 (총 50개)</h2>
   <div class="btn-container">
     <button onclick="sendWebhook('ema_cross_up_12')">ema_cross_up_12</button>
     <button onclick="sendWebhook('ema_cross_up_16')">ema_cross_up_16</button>
@@ -35,6 +35,8 @@
     <button onclick="sendWebhook('ema_cross_down_50')">ema_cross_down_50</button>
     <button onclick="sendWebhook('ema_cross_down_67')">ema_cross_down_67</button>
     <button onclick="sendWebhook('ema_cross_down_100')">ema_cross_down_100</button>
+    <button onclick="sendWebhook('edi65_cross_up_0_15m')">edi65_cross_up_0_15m</button>
+    <button onclick="sendWebhook('edi65_cross_down_0_15m')">edi65_cross_down_0_15m</button>
     <button onclick="sendWebhook('edi65_cross_up_0.25_15m')">edi65_cross_up_0.25_15m</button>
     <button onclick="sendWebhook('edi65_cross_down_-0.25_15m')">edi65_cross_down_-0.25_15m</button>
     <button onclick="sendWebhook('edi14_cross_above_0_15m')">edi14_cross_above_0_15m</button>
@@ -77,7 +79,7 @@
       const payload = {
         symbol: "ETHUSD",
         trigger: trigger,
-        price: "{{close}}",
+        price: 3000,
         vr40: "VR40",
         vr60: "VR60"
       };
