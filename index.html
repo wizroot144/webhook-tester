@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>호진님의 자동매매 웹훅 테스트</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f9f9f9; }
+    h2 { color: #333; }
+    .btn-container { display: flex; flex-wrap: wrap; gap: 10px; }
+    button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>📤 웹훅 테스트 버튼 (총 48개)</h2>
+  <div class="btn-container">
+    <button onclick="sendWebhook('ema_cross_up_12')">ema_cross_up_12</button>
+    <button onclick="sendWebhook('ema_cross_up_16')">ema_cross_up_16</button>
+    <button onclick="sendWebhook('ema_cross_up_26')">ema_cross_up_26</button>
+    <button onclick="sendWebhook('ema_cross_up_50')">ema_cross_up_50</button>
+    <button onclick="sendWebhook('ema_cross_up_67')">ema_cross_up_67</button>
+    <button onclick="sendWebhook('ema_cross_up_100')">ema_cross_up_100</button>
+    <button onclick="sendWebhook('ema_cross_down_12')">ema_cross_down_12</button>
+    <button onclick="sendWebhook('ema_cross_down_16')">ema_cross_down_16</button>
+    <button onclick="sendWebhook('ema_cross_down_26')">ema_cross_down_26</button>
+    <button onclick="sendWebhook('ema_cross_down_50')">ema_cross_down_50</button>
+    <button onclick="sendWebhook('ema_cross_down_67')">ema_cross_down_67</button>
+    <button onclick="sendWebhook('ema_cross_down_100')">ema_cross_down_100</button>
+    <button onclick="sendWebhook('edi65_cross_up_0.25_15m')">edi65_cross_up_0.25_15m</button>
+    <button onclick="sendWebhook('edi65_cross_down_-0.25_15m')">edi65_cross_down_-0.25_15m</button>
+    <button onclick="sendWebhook('edi14_cross_above_0_15m')">edi14_cross_above_0_15m</button>
+    <button onclick="sendWebhook('edi14_cross_below_0_15m')">edi14_cross_below_0_15m</button>
+    <button onclick="sendWebhook('edi14_cross_above_0_3m')">edi14_cross_above_0_3m</button>
+    <button onclick="sendWebhook('edi14_cross_below_0_3m')">edi14_cross_below_0_3m</button>
+    <button onclick="sendWebhook('adx17_cross_up_20')">adx17_cross_up_20</button>
+    <button onclick="sendWebhook('adx17_cross_down_20')">adx17_cross_down_20</button>
+    <button onclick="sendWebhook('adx17_cross_down_27')">adx17_cross_down_27</button>
+    <button onclick="sendWebhook('adx17_cross_up_50')">adx17_cross_up_50</button>
+    <button onclick="sendWebhook('vr40_cross_up_40')">vr40_cross_up_40</button>
+    <button onclick="sendWebhook('vr40_cross_up_50')">vr40_cross_up_50</button>
+    <button onclick="sendWebhook('vr40_cross_up_60')">vr40_cross_up_60</button>
+    <button onclick="sendWebhook('vr40_cross_up_70')">vr40_cross_up_70</button>
+    <button onclick="sendWebhook('vr40_cross_down_30')">vr40_cross_down_30</button>
+    <button onclick="sendWebhook('vr40_cross_down_40')">vr40_cross_down_40</button>
+    <button onclick="sendWebhook('vr40_cross_down_50')">vr40_cross_down_50</button>
+    <button onclick="sendWebhook('vr40_cross_down_60')">vr40_cross_down_60</button>
+    <button onclick="sendWebhook('vr40_cross_down_70')">vr40_cross_down_70</button>
+    <button onclick="sendWebhook('vr40_cross_up_30')">vr40_cross_up_30</button>
+    <button onclick="sendWebhook('vr60_cross_up_50')">vr60_cross_up_50</button>
+    <button onclick="sendWebhook('vr60_cross_up_60')">vr60_cross_up_60</button>
+    <button onclick="sendWebhook('vr60_cross_down_40')">vr60_cross_down_40</button>
+    <button onclick="sendWebhook('vr60_cross_down_50')">vr60_cross_down_50</button>
+    <button onclick="sendWebhook('vr60_cross_down_60')">vr60_cross_down_60</button>
+    <button onclick="sendWebhook('vr60_cross_up_40')">vr60_cross_up_40</button>
+    <button onclick="sendWebhook('macd_bb_upper_break')">macd_bb_upper_break</button>
+    <button onclick="sendWebhook('macd_bb_upper_reenter')">macd_bb_upper_reenter</button>
+    <button onclick="sendWebhook('macd_bb_lower_break')">macd_bb_lower_break</button>
+    <button onclick="sendWebhook('macd_bb_lower_reenter')">macd_bb_lower_reenter</button>
+    <button onclick="sendWebhook('macd_bb_cross_up_0')">macd_bb_cross_up_0</button>
+    <button onclick="sendWebhook('macd_bb_cross_down_0')">macd_bb_cross_down_0</button>
+    <button onclick="sendWebhook('macd_bb_channel_enter')">macd_bb_channel_enter</button>
+    <button onclick="sendWebhook('macd_bb_channel_exit')">macd_bb_channel_exit</button>
+    <button onclick="sendWebhook('tema_macd_cross_down_0')">tema_macd_cross_down_0</button>
+    <button onclick="sendWebhook('tema_macd_cross_up_0')">tema_macd_cross_up_0</button>
+  </div>
+  <script>
+    function sendWebhook(trigger) {
+      const payload = {
+        symbol: "ETHUSD",
+        trigger: trigger,
+        price: "{{close}}",
+        vr40: "VR40",
+        vr60: "VR60"
+      };
+
+      fetch("https://flask-auto-trader.onrender.com/webhook", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+      .then(response => response.text())
+      .then(data => alert("✅ 전송 완료: " + trigger))
+      .catch(error => alert("❌ 오류 발생: " + error));
+    }
+  </script>
+</body>
+</html>
